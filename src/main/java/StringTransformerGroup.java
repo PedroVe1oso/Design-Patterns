@@ -1,0 +1,22 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class StringTransformerGroup implements StringTransformer{
+    List<StringTransformer> transformers;
+
+    public StringTransformerGroup(List<StringTransformer> transformers) {
+        this.transformers = transformers;
+    }
+
+    @Override
+    public void execute(StringDrink drink) {
+        for (int i = 0; i < transformers.size(); i++) {
+            transformers.get(i).execute(drink);
+        }
+    }
+
+    @Override
+    public void undo(StringDrink drink) {
+        execute(drink);
+    }
+}
