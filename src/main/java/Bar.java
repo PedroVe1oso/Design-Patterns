@@ -10,11 +10,19 @@ public abstract class Bar {
         observers = new ArrayList<>();
     }
 
-    public boolean isHappyHour() {return happyHour;}
+    public boolean isHappyHour() {
+        return happyHour;
+    }
 
-    public void startHappyHour() {happyHour = true;}
+    public void startHappyHour() {
+        happyHour = true;
+        notifyObservers();
+    }
 
-    public void endHappyHour() { happyHour = false;}
+    public void endHappyHour() {
+        happyHour = false;
+        notifyObservers();
+    }
 
     public void addObserver(BarObserver observer) {
         observers.add(observer);
