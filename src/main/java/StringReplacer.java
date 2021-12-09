@@ -10,10 +10,7 @@ public class StringReplacer  implements StringTransformer{
 
     @Override
     public void execute(StringDrink drink) {
-        StringBuffer str = new StringBuffer(drink.getText());
-        for (int i = 0; i < drink.getText().length(); i++) {
-            if(str.charAt(i) == a) str.setCharAt(i, b);
-        }
-        drink.setText(str.toString());
+        String str = drink.getText().replace(a, b);
+        drink.setText(str);
     }
 }
